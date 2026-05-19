@@ -1,0 +1,33 @@
+mlflow:
+  tracking_uri: "mlruns"            # local file-based tracking (no server needed)
+  experiment_name: "finance-price-forecasting"
+  artifact_location: "mlruns/artifacts"
+
+  default_tags:
+    project: "real-time-finance-pipeline"
+    team: "data-engineering"
+
+models:
+  linear_trend:
+    description: "OLS trend extrapolation with 95% prediction intervals"
+    params:
+      horizon: 3
+      confidence_level: 0.95
+
+  holt_smoothing:
+    description: "Holt double exponential smoothing with damped trend"
+    params:
+      horizon: 3
+      trend: "add"
+      damped_trend: true
+      optimized: true
+
+indicators:
+  - current_price_usd
+  - price_change_pct
+  - trading_volume
+  - intraday_range_pct
+
+training:
+  min_observations: 3
+  test_size: 1          # hold out last N points for evaluation
