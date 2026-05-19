@@ -127,8 +127,8 @@ econ-governance-pipeline-v2/
 ### 1. Clone & install
 
 ```bash
-git clone https://github.com/KongSattha55/econ-governance-pipeline-v2.git
-cd econ-governance-pipeline-v2
+https://github.com/Chungheang0980/data_engineer.git
+cd ASSIGMENT2
 
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
